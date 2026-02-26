@@ -11,12 +11,10 @@
         body {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>') 12 12, auto;
         }
-
         /* Typography */
         .font-script { font-family: 'Great Vibes', cursive; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }
-
         /* Animations */
         @keyframes float {
             0% { transform: translateY(0px); }
@@ -24,22 +22,20 @@
             100% { transform: translateY(0px); }
         }
         .animate-float { animation: float 6s ease-in-out infinite; }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #fce7f3; 
+            background: #fce7f3;
         }
         ::-webkit-scrollbar-thumb {
-            background: #f472b6; 
+            background: #f472b6;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #ec4899; 
+            background: #ec4899;
         }
-
         /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.25);
@@ -47,7 +43,6 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
-
         /* Lightbox */
         .lightbox {
             display: none;
@@ -73,7 +68,6 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-pink-100 via-rose-200 to-purple-200 min-h-screen text-gray-800 font-sans overflow-x-hidden selection:bg-pink-300 selection:text-pink-900">
-
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +77,7 @@
                     <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-script text-2xl mr-2 shadow-lg group-hover:rotate-12 transition-transform">B</div>
                     <span class="font-serif font-bold text-2xl text-pink-900 tracking-wider">Busi's Nails</span>
                 </div>
-                
+               
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="text-gray-700 hover:text-pink-600 font-medium transition-colors relative group">
@@ -102,7 +96,6 @@
                         Book Now
                     </a>
                 </div>
-
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-gray-700 hover:text-pink-600 focus:outline-none">
@@ -123,7 +116,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Gallery Section -->
     <section id="gallery" class="py-32 bg-gradient-to-b from-white to-pink-50 min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,105 +124,93 @@
                 <div class="w-24 h-1 bg-pink-500 mx-auto rounded-full"></div>
                 <p class="mt-4 text-gray-600">Explore our stunning nail art collection. Click any image to view in full size.</p>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[280px]">
                 <!-- Gallery Item 1 -->
-                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                         <span class="text-white font-serif text-lg">French Elegance</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 2 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Classic Pink</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 3 -->
-                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1580128660010-fd027e1e587a?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1580128660010-fd027e1e587a?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                         <span class="text-white font-serif text-lg">Glitter Glam</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 4 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1609508555977-d3a222cb06e9?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1609508555977-d3a222cb06e9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Spa Day</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 5 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1610995534732-6077f5a34d8e?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1610995534732-6077f5a34d8e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Acrylic Art</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 6 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1605733168905-b6e6d0f6a6d8?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1605733168905-b6e6d0f6a6d8?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Nude Perfection</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 7 -->
-                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                         <span class="text-white font-serif text-lg">Crystal Dreams</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 8 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Summer Vibes</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 9 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1605733168905-b6e6d0f6a6d8?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1605733168905-b6e6d0f6a6d8?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Matte Finish</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 10 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1610995534732-6077f5a34d8e?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1610995534732-6077f5a34d8e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Red Passion</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 11 -->
-                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1580128660010-fd027e1e587a?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1580128660010-fd027e1e587a?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                         <span class="text-white font-serif text-lg">3D Floral</span>
                     </div>
                 </div>
-
                 <!-- Gallery Item 12 -->
-                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?q=80&w=1200&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1596464716127-f9a0859b4bce?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1609508555977-d3a222cb06e9?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1609508555977-d3a222cb06e9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nail Design">
                     <div class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                         <span class="text-white font-serif text-sm">Ocean Blue</span>
                     </div>
                 </div>
             </div>
-            
+           
             <div class="text-center mt-12">
                 <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full font-semibold shadow-lg hover:shadow-pink-500/30 hover:-translate-y-1 transition-all duration-300">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -239,7 +219,6 @@
             </div>
         </div>
     </section>
-
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <button class="absolute top-6 right-6 text-white hover:text-pink-400 transition-colors">
@@ -247,7 +226,6 @@
         </button>
         <img id="lightbox-img" src="" alt="Full size nail design">
     </div>
-
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -259,7 +237,7 @@
                     </div>
                     <p class="text-gray-400 text-sm">Crafting beauty one nail at a time. Your destination for luxury nail care.</p>
                 </div>
-                
+               
                 <div>
                     <h4 class="font-bold text-lg mb-4 text-pink-400">Quick Links</h4>
                     <ul class="space-y-2 text-gray-400">
@@ -269,7 +247,6 @@
                         <li><a href="index.html#contact" class="hover:text-white transition-colors">Book Now</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="font-bold text-lg mb-4 text-pink-400">Contact</h4>
                     <ul class="space-y-2 text-gray-400">
@@ -279,7 +256,6 @@
                         <li>hello@busisnails.com</li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="font-bold text-lg mb-4 text-pink-400">Hours</h4>
                     <ul class="space-y-2 text-gray-400">
@@ -294,35 +270,29 @@
             </div>
         </div>
     </footer>
-
     <script>
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
-
         // Lightbox Functions
         function openLightbox(src) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-
         // Close lightbox with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeLightbox();
             }
         });
-
         // Navbar Glass Effect on Scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
