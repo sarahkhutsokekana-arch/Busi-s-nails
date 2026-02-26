@@ -5,38 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busi's Nails | Premium South African Nail Tech</title>
     <style>
-        /* Modern CSS Reset & Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
         :root {
-            --primary: #d4a373; /* Warm nude/gold */
-            --secondary: #faedcd; /* Soft cream */
-            --dark: #333333;
-            --light: #fefcfb;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --sweet-pink: #ffb7c5;
+            --sweet-pink-light: #ffd1dc;
+            --dusty-pink: #d4a5a5;
+            --dusty-rose: #c9a6a6;
+            --soft-pink: #fce4ec;
+            --deep-rose: #c2185b;
+            --rose-gold: #e8b4b8;
+            --white: #ffffff;
+            --off-white: #faf7f7;
+            --cream: #fff5f7;
+            --text-dark: #4a4a4a;
+            --text-light: #7a7a7a;
+            --glass: rgba(255, 255, 255, 0.85);
+            --shadow: rgba(212, 165, 165, 0.2);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: var(--font-main);
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 50%, var(--sweet-pink-light) 100%);
+            color: var(--text-dark);
             line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Animations */
+        /* Animated Background Elements */
+        .bg-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--sweet-pink);
+            top: -100px;
+            left: -100px;
+        }
+
+        .bg-blob-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--dusty-pink);
+            bottom: 10%;
+            right: -50px;
+            animation-delay: 5s;
+        }
+
+        .bg-blob-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--rose-gold);
+            top: 40%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar - Glassmorphism */
         nav {
-            background-color: var(--light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(212, 165, 165, 0.15);
             position: fixed;
             width: 100%;
             top: 0;
@@ -44,40 +98,68 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
+            padding: 1.2rem 5%;
+            border-bottom: 1px solid rgba(255, 183, 197, 0.3);
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             cursor: pointer;
             letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links li a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-dark);
             font-weight: 500;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--sweet-pink), var(--deep-rose));
+            transition: width 0.3s ease;
+            border-radius: 2px;
         }
 
         .nav-links li a:hover, .nav-links li a.active {
-            color: var(--primary);
+            color: var(--deep-rose);
+        }
+
+        .nav-links li a:hover::after, .nav-links li a.active::after {
+            width: 100%;
         }
 
         /* Page Sections */
         .page-section {
-            display: none; /* Hidden by default, JS will reveal */
-            padding: 120px 5% 50px 5%;
-            animation: fadeIn 0.6s ease-out forwards;
+            display: none;
+            padding: 120px 5% 80px;
+            animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             min-height: 100vh;
         }
 
@@ -85,128 +167,317 @@
             display: block;
         }
 
-        /* Home Page */
+        /* Home Page - Hero with Background Image */
+        #home {
+            padding: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(135deg, rgba(255, 247, 250, 0.85) 0%, rgba(252, 228, 236, 0.9) 100%),
+                url('https://kimi-web-img.moonshot.cn/img/images.stockcake.com/ba1829b30d625efc33a5c15fddaf8ca50e98aa92.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
         .hero {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding-top: 50px;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--deep-rose);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
+            border: 2px solid var(--sweet-pink);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3); }
+            50% { transform: scale(1.02); box-shadow: 0 6px 20px rgba(212, 165, 165, 0.4); }
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--sweet-pink), var(--deep-rose));
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 16px 40px;
             font-size: 1.1rem;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(194, 24, 89, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
         }
 
         .btn:hover {
-            background-color: #bc8f5b;
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(194, 24, 89, 0.4);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         /* Services Page */
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--deep-rose);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-top: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .service-card {
-            background: white;
-            border-radius: 15px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             position: relative;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(212, 165, 165, 0.3);
+        }
+
+        .card-img-container {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
         }
 
         .card-img {
             width: 100%;
-            height: 350px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover .card-img {
+            transform: scale(1.1);
         }
 
         .price-tag {
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: var(--primary);
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-weight: bold;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--deep-rose);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 700;
             font-size: 1.2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--sweet-pink);
+            backdrop-filter: blur(10px);
         }
 
         .card-content {
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,1));
         }
 
         .card-content h3 {
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--deep-rose);
+            margin-bottom: 0.8rem;
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         /* Book Appointment Page */
-        .booking-container {
-            max-width: 600px;
+        .booking-wrapper {
+            max-width: 700px;
             margin: 0 auto;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .booking-container {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(212, 165, 165, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
         .form-group {
             margin-bottom: 1.5rem;
         }
 
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--deep-rose);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-group input, .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            padding: 14px 18px;
+            border: 2px solid rgba(212, 165, 165, 0.3);
+            border-radius: 15px;
             font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            color: var(--text-dark);
         }
 
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--sweet-pink);
+            box-shadow: 0 0 0 4px rgba(255, 183, 197, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .form-group input::placeholder {
+            color: #bbb;
+        }
+
+        .btn-submit {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
-            background-color: var(--dark);
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--deep-rose), #880e4f);
             color: white;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .footer-heart {
+            color: var(--sweet-pink);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .nav-links { gap: 1.5rem; font-size: 0.9rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .booking-container { padding: 2rem; }
+            .card-img-container { height: 300px; }
         }
     </style>
 </head>
 <body>
+    <!-- Animated Background Blobs -->
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
 
     <nav>
         <div class="logo" onclick="switchPage('home')">Busi's Nails</div>
@@ -218,79 +489,102 @@
     </nav>
 
     <section id="home" class="page-section active">
+        <div class="hero-background"></div>
         <div class="hero">
+            <div class="hero-badge">✨ Premium South African Nail Artistry</div>
             <h1>Welcome to Busi's Nails</h1>
-            <p>Empowering South African women with flawless acrylics, stunning gels, and custom nail art. Step in, relax, and let your hands do the talking.</p>
+            <p>Empowering South African women with flawless acrylics, stunning gels, and custom nail art. Step in, relax, and let your hands do the talking in our luxurious pink sanctuary.</p>
             <button class="btn" onclick="switchPage('services')">View Our Work</button>
         </div>
     </section>
 
     <section id="services" class="page-section">
-        <h2 style="text-align: center; margin-bottom: 10px; font-size: 2.5rem;">Our Services</h2>
-        <p style="text-align: center; margin-bottom: 30px; color: #666;">Beautifully crafted designs for every occasion.</p>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Beautifully crafted designs for every occasion</p>
         
         <div class="services-grid">
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" alt="Acrylic Nails" class="card-img">
-                <div class="price-tag">R 450</div>
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" alt="Acrylic Nails" class="card-img">
+                    <div class="price-tag">R 450</div>
+                </div>
                 <div class="card-content">
                     <h3>Classic Acrylic Set</h3>
-                    <p>Full set of long-lasting acrylic tips with your choice of solid color.</p>
+                    <p>Full set of long-lasting acrylic tips with your choice of solid color or elegant french finish.</p>
                 </div>
             </div>
 
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80&w=600" alt="Gel Overlay" class="card-img">
-                <div class="price-tag">R 350</div>
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80&w=600" alt="Gel Overlay" class="card-img">
+                    <div class="price-tag">R 350</div>
+                </div>
                 <div class="card-content">
                     <h3>Gel Overlays on Natural Nails</h3>
-                    <p>Strengthen your natural nails with our premium, chip-resistant gel.</p>
+                    <p>Strengthen your natural nails with our premium, chip-resistant gel for a healthy, glossy finish.</p>
                 </div>
             </div>
 
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=600" alt="Nail Art" class="card-img">
-                <div class="price-tag">R 550</div>
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=600" alt="Nail Art" class="card-img">
+                    <div class="price-tag">R 550</div>
+                </div>
                 <div class="card-content">
                     <h3>Custom Sculpted Art</h3>
-                    <p>Acrylic ombre, french fades, and detailed custom designs tailored for you.</p>
+                    <p>Acrylic ombre, french fades, and detailed custom designs tailored specifically for your style.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="book" class="page-section">
-        <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem;">Book Your Session</h2>
-        <div class="booking-container">
-            <form id="bookingForm" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" required placeholder="e.g. Lerato Mokoena">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" required placeholder="082 123 4567">
-                </div>
-                <div class="form-group">
-                    <label for="service">Select Service</label>
-                    <select id="service" required>
-                        <option value="">-- Choose a service --</option>
-                        <option value="acrylic">Classic Acrylic Set (R450)</option>
-                        <option value="gel">Gel Overlays (R350)</option>
-                        <option value="art">Custom Sculpted Art (R550)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="date">Preferred Date</label>
-                    <input type="date" id="date" required>
-                </div>
-                <button type="submit" class="btn" style="width: 100%; margin-top: 15px;">Confirm Booking</button>
-            </form>
+        <h2 class="section-title">Book Your Session</h2>
+        <p class="section-subtitle">Reserve your spot for a luxurious nail experience</p>
+        
+        <div class="booking-wrapper">
+            <div class="booking-container">
+                <form id="bookingForm" onsubmit="submitForm(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required placeholder="e.g. Lerato Mokoena">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required placeholder="082 123 4567">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service">Select Service</label>
+                            <select id="service" required>
+                                <option value="">-- Choose a service --</option>
+                                <option value="acrylic">Classic Acrylic Set (R450)</option>
+                                <option value="gel">Gel Overlays (R350)</option>
+                                <option value="art">Custom Sculpted Art (R550)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="notes">Special Requests (Optional)</label>
+                        <input type="text" id="notes" placeholder="Any design preferences or allergies...">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Confirm Booking</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Busi's Nails. All Rights Reserved. Crafted for beautiful hands.</p>
+        <p>&copy; 2026 Busi's Nails. All Rights Reserved. Crafted with <span class="footer-heart">💕</span> for beautiful hands.</p>
     </footer>
 
     <script>
@@ -299,6 +593,7 @@
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
+            
             // Show the selected section
             document.getElementById(pageId).classList.add('active');
 
@@ -315,17 +610,32 @@
             }
 
             // Scroll to top
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Handle the mock booking form submission
+        // Handle the booking form submission
         function submitForm(event) {
             event.preventDefault();
             let name = document.getElementById('name').value;
-            alert('Thank you, ' + name + '! Your booking request has been received. Busi will contact you shortly.');
+            let service = document.getElementById('service');
+            let serviceText = service.options[service.selectedIndex].text;
+            
+            // Create a more elegant alert
+            const message = `Thank you, ${name}! ✨\n\nYour booking for "${serviceText}" has been received. Busi will contact you shortly to confirm your appointment.`;
+            alert(message);
+            
             document.getElementById('bookingForm').reset();
             switchPage('home');
         }
+
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        });
     </script>
 </body>
 </html>
