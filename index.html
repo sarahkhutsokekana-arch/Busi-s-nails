@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busi's Nails | Premium South African Nail Tech</title>
+    <style>
+        /* Modern CSS Reset & Variables */
+        :root {
+            --primary: #d4a373; /* Warm nude/gold */
+            --secondary: #faedcd; /* Soft cream */
+            --dark: #333333;
+            --light: #fefcfb;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-main);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--primary);
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none; /* Hidden by default, JS will reveal */
+            padding: 120px 5% 50px 5%;
+            animation: fadeIn 0.6s ease-out forwards;
+            min-height: 100vh;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Home Page */
+        .hero {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #bc8f5b;
+            transform: scale(1.05);
+        }
+
+        /* Services Page */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Book Appointment Page */
+        .booking-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="switchPage('home')">Busi's Nails</div>
+        <ul class="nav-links">
+            <li><a class="nav-item active" onclick="switchPage('home')">Home</a></li>
+            <li><a class="nav-item" onclick="switchPage('services')">Services & Gallery</a></li>
+            <li><a class="nav-item" onclick="switchPage('book')">Book Appointment</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <h1>Welcome to Busi's Nails</h1>
+            <p>Empowering South African women with flawless acrylics, stunning gels, and custom nail art. Step in, relax, and let your hands do the talking.</p>
+            <button class="btn" onclick="switchPage('services')">View Our Work</button>
+        </div>
+    </section>
+
+    <section id="services" class="page-section">
+        <h2 style="text-align: center; margin-bottom: 10px; font-size: 2.5rem;">Our Services</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #666;">Beautifully crafted designs for every occasion.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" alt="Acrylic Nails" class="card-img">
+                <div class="price-tag">R 450</div>
+                <div class="card-content">
+                    <h3>Classic Acrylic Set</h3>
+                    <p>Full set of long-lasting acrylic tips with your choice of solid color.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80&w=600" alt="Gel Overlay" class="card-img">
+                <div class="price-tag">R 350</div>
+                <div class="card-content">
+                    <h3>Gel Overlays on Natural Nails</h3>
+                    <p>Strengthen your natural nails with our premium, chip-resistant gel.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=600" alt="Nail Art" class="card-img">
+                <div class="price-tag">R 550</div>
+                <div class="card-content">
+                    <h3>Custom Sculpted Art</h3>
+                    <p>Acrylic ombre, french fades, and detailed custom designs tailored for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book" class="page-section">
+        <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem;">Book Your Session</h2>
+        <div class="booking-container">
+            <form id="bookingForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="e.g. Lerato Mokoena">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="082 123 4567">
+                </div>
+                <div class="form-group">
+                    <label for="service">Select Service</label>
+                    <select id="service" required>
+                        <option value="">-- Choose a service --</option>
+                        <option value="acrylic">Classic Acrylic Set (R450)</option>
+                        <option value="gel">Gel Overlays (R350)</option>
+                        <option value="art">Custom Sculpted Art (R550)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 15px;">Confirm Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Busi's Nails. All Rights Reserved. Crafted for beautiful hands.</p>
+    </footer>
+
+    <script>
+        function switchPage(pageId) {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(pageId).classList.add('active');
+
+            // Update navigation active state
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Map the pageId to the right navigation link to add the active styling
+            let navMap = {'home': 0, 'services': 1, 'book': 2};
+            let navItems = document.querySelectorAll('.nav-item');
+            if(navItems[navMap[pageId]]) {
+                navItems[navMap[pageId]].classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Handle the mock booking form submission
+        function submitForm(event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            alert('Thank you, ' + name + '! Your booking request has been received. Busi will contact you shortly.');
+            document.getElementById('bookingForm').reset();
+            switchPage('home');
+        }
+    </script>
+</body>
+</html>
